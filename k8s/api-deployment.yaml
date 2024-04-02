@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: ravi2krishna/lms-k8s-backend
+          image: karthiksappidi/lms-api
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
