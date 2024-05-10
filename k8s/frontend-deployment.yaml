@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: frontend
-          image: karthiksappidi/lms-webapp
+          image: karthiksappidi/lms-frontend
           imagePullPolicy: Always
           ports:
             - containerPort: 80
@@ -22,4 +22,4 @@ spec:
             - name: MODE
               value: production
             - name: VITE_API_URL
-              value: api-load-balancer-service
+              value: backend-load-balancer-service
