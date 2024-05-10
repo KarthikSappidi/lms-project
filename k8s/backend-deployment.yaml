@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      component: backend
+  template:
+    metadata:
+      labels:
+        component: backend
+    spec:
+      containers:
+        - name: backend
+          image: karthiksappidi/backend
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+         envFrom:
+            - configMapRef:
+                 name: backend-config-map
+         env:
+           - name: DB_PASSWORD
+             valueFrom: 
+               secretKeyRef:
+                 name: postgres-secret
+                 key: password
+
+                 
+
+      
